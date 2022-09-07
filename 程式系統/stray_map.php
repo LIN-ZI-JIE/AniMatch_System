@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>AniMatch</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+.mySlides {display: none}
+
+.menu {display: none;}
+</style>
+
+</head>
+<body>
+
+<!-- 導覽欄 -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-sand">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <div class="w3-col s3">
+      <a href="#home" onclick="javascript:location.href='stray_main.php'" class="w3-button w3-block w3-sand">首頁</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#about" onclick="javascript:location.href='stray_chat.php'" class="w3-button w3-block w3-sand">浪浪討論室</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#information" onclick="javascript:location.href='stray_member.php'" class="w3-button w3-block w3-sand">會員資訊</a>
+    </div>
+
+    <div class="w3-col s2 w3-dropdown-hover w3-hide-small">
+      <button class="w3-button w3-block w3-sand" title="More">MORE <i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#program" onclick="javascript:location.href='stray_program.php'" class="w3-button w3-block w3-sand">領養程序</a>
+        <a onclick="javascript:location.href='stray_map.php'"class="w3-button w3-block w3-sand">寵物醫院</a>
+      </div>
+     </div> 
+     <div class="w3-col s2">
+      <a href="#Sign out" onclick="javascript:location.href='logout.php'" class="w3-button w3-block w3-sand">登出</a>
+     </div>    
+    </div>
+</div>
+    
+
+
+<!-- 小螢幕的導覽欄 onclick="myFunction()在class後面加這個會讓導覽欄亭在原位-->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+  <a href="#home" onclick="javascript:location.href='main.php'" class="w3-button w3-block w3-sand" >首頁</a>
+  <a href="#about" class="w3-button w3-block w3-sand" >領養程序</a>
+  <a href="#information" onclick="javascript:location.href='member.php'" class="w3-button w3-block w3-sand" >會員資訊</a>
+  <a href="#"  class="w3-button w3-block w3-sand">資訊</a>
+  <a href="#" class="w3-button w3-block w3-sand">例子</a>
+  <a href="#" class="w3-button w3-block w3-sand">其他</a>
+  <a href="#Sign out" onclick="javascript:location.href='logout.php'" class="w3-button w3-block w3-sand" >登出</a>
+</div>
+
+<!-- 頁面內容 -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <!-- 自動幻燈片 -->
+  <div class="mySlides w3-display-container w3-center">
+    <img src="background.png" style="width: 30%">
+    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+     <span class="w3-tag">歡迎各位領養浪浪</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+    <span class="w3-text-deep-orange" style="font-size:20px">AniMatch<br>浪浪領養系統</span></span>
+  </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="background.png" style="width: 30%">
+    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+   <span class="w3-tag">領養可愛浪浪</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+    <span class="w3-sand" style="font-size:20px">AniMatch<br>浪浪領養系統</span></span>
+  </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="background.png" style="width: 30%">
+    <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+   <span class="w3-tag">歡迎領養浪浪</span>
+    </div>
+    <div class="w3-display-middle w3-center">
+    <span class="w3-text-deep-orange" style="font-size:20px">AniMatch<br>浪浪領養系統</span></span>
+  </div>
+  </div>
+    <iframe src="https://www.tgos.tw/MapSites/EmbedMap?themeid=20946&visual=point" width="100%" height="580" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+
+<script>
+// 自動幻燈片4秒換一次
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+// 小屏幕單及菜單按鈕切換菜單
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
